@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker Registry Browser</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Docker Registry Browser</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Repository</th>
+                <th>Tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for repo in repo_tags %}
+                <tr>
+                    <td>{{ repo.repository }}</td>
+                    <td>{{ ", ".join(repo.tags) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
